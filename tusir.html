@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify Web Player - Elegant Design</title>
+    <title>Galeri Nusantara - Musik Indonesia Elegan</title>
     
     <!-- Ikon Elegan dari Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Google Fonts untuk Tipografi yang Lebih Baik -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts untuk Tipografi Elegan -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
         /* ------------------- */
-        /* VARIABEL WARNA & FONT */
+        /* VARIABEL WARNA & FONT TEMA PERUNGGU */
         /* ------------------- */
         :root {
-            --bg-primary: #121212;
-            --bg-secondary: #181818;
-            --bg-elevated: #282828;
-            --bg-highlight: #404040;
-            --text-primary: #ffffff;
-            --text-secondary: #b3b3b3;
-            --accent-green: #1db954;
-            --font-family: 'Montserrat', sans-serif;
+            --bg-primary: #1a1a1a;        /* Hitam pekat */
+            --bg-secondary: #252525;      /* Abu-abu sangat gelap */
+            --bg-elevated: #333333;       /* Abu-abu gelap untuk card */
+            --bg-highlight: #404040;      /* Warna hover */
+            --text-primary: #f0f0f0;      /* Putih sedikit krem */
+            --text-secondary: #b3b3b3;   /* Abu-abu teks */
+            --accent-bronze: #B08D57;     /* Warna aksen Perunggu */
+            --font-heading: 'Playfair Display', serif; /* Font elegan untuk judul */
+            --font-body: 'Montserrat', sans-serif;     /* Font yang mudah dibaca */
         }
 
         /* ------------------- */
@@ -36,10 +37,10 @@
         }
 
         body {
-            font-family: var(--font-family);
+            font-family: var(--font-body);
             background-color: var(--bg-primary);
             color: var(--text-primary);
-            overflow: hidden; /* Mencegah scroll utama */
+            overflow: hidden;
         }
 
         /* ------------------- */
@@ -47,13 +48,13 @@
         /* ------------------- */
         .app-container {
             display: grid;
-            grid-template-rows: 1fr auto; /* Konten Utama & Player */
+            grid-template-rows: 1fr auto;
             height: 100vh;
         }
 
         .main-container {
             display: flex;
-            height: calc(100vh - 90px); /* Tinggi dikurangi tinggi player */
+            height: calc(100vh - 90px);
         }
 
         /* ------------------- */
@@ -74,9 +75,10 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            font-family: var(--font-heading);
             font-size: 24px;
             font-weight: 700;
-            color: var(--accent-green);
+            color: var(--accent-bronze);
         }
 
         .nav-section a {
@@ -119,7 +121,7 @@
         /* ------------------- */
         .main-content {
             flex-grow: 1;
-            background: linear-gradient(to bottom, #1f1f1f, var(--bg-secondary));
+            background: linear-gradient(to bottom, #2a2a2a, var(--bg-secondary));
             border-top-left-radius: 8px;
             overflow-y: auto;
             padding: 24px 32px;
@@ -164,8 +166,8 @@
             transition: all 0.2s;
         }
         .header-actions button:hover { border-color: var(--text-primary); transform: scale(1.05); }
-        .header-actions button.upgrade { background-color: var(--text-primary); color: var(--bg-primary); border: none; }
-        .header-actions button.upgrade:hover { background-color: var(--text-secondary); }
+        .header-actions button.upgrade { background-color: var(--accent-bronze); color: var(--bg-primary); border: none; font-weight: 700; }
+        .header-actions button.upgrade:hover { background-color: #9c7844; }
 
         .content-section { display: none; }
         .content-section.active { display: block; }
@@ -178,7 +180,7 @@
         }
 
         .playlist-card {
-            background-color: var(--bg-secondary);
+            background-color: var(--bg-elevated);
             border-radius: 8px;
             padding: 16px;
             transition: background-color 0.3s ease;
@@ -187,7 +189,7 @@
         }
 
         .playlist-card:hover {
-            background-color: var(--bg-elevated);
+            background-color: var(--bg-highlight);
         }
 
         .playlist-card:hover .card-play-btn {
@@ -198,10 +200,11 @@
         .card-image-container {
             position: relative;
             width: 100%;
-            padding-bottom: 100%; /* Membuat kotak sempurna */
+            padding-bottom: 100%;
             margin-bottom: 12px;
             overflow: hidden;
             border-radius: 4px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.4);
         }
 
         .card-image {
@@ -217,7 +220,7 @@
             position: absolute;
             bottom: 10px;
             right: 10px;
-            background-color: var(--accent-green);
+            background-color: var(--accent-bronze);
             color: var(--bg-primary);
             border: none;
             width: 48px;
@@ -227,18 +230,19 @@
             align-items: center;
             justify-content: center;
             font-size: 18px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
             opacity: 0;
             transform: translateY(8px);
             transition: all 0.3s ease;
             cursor: pointer;
         }
 
-        .card-play-btn:hover { transform: scale(1.05) translateY(0); }
+        .card-play-btn:hover { transform: scale(1.05) translateY(0); background-color: #9c7844; }
 
         .playlist-card h4 {
-            font-weight: 600;
-            font-size: 14px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 16px;
             margin-bottom: 4px;
             white-space: nowrap;
             overflow: hidden;
@@ -249,6 +253,12 @@
             font-size: 12px;
             color: var(--text-secondary);
             line-height: 1.4;
+        }
+        
+        .main-content h1 {
+            font-family: var(--font-heading);
+            font-size: 32px;
+            margin-bottom: 20px;
         }
 
         /* ------------------- */
@@ -358,7 +368,7 @@
             cursor: pointer;
         }
 
-        .liked { color: var(--accent-green) !important; }
+        .liked { color: var(--accent-bronze) !important; }
 
     </style>
 </head>
@@ -369,19 +379,19 @@
             <!-- Sidebar -->
             <aside class="sidebar">
                 <div class="logo">
-                    <i class="fab fa-spotify"></i> <span>Spotify</span>
+                    <i class="fas fa-compact-disc"></i> <span>Galeri Nusantara</span>
                 </div>
                 <nav class="nav-section">
                     <a href="#" class="nav-link active" data-section="home"><i class="fas fa-home"></i> Beranda</a>
-                    <a href="#" class="nav-link" data-section="search"><i class="fas fa-search"></i> Cari</a>
-                    <a href="#" class="nav-link" data-section="library"><i class="fas fa-book"></i> Koleksi Kamu</a>
+                    <a href="#" class="nav-link" data-section="search"><i class="fas fa-search"></i> Jelajahi</a>
+                    <a href="#" class="nav-link" data-section="library"><i class="fas fa-book"></i> Koleksi</a>
                 </nav>
                 <div class="playlist-list">
                     <a href="#">Buat Playlist</a>
-                    <a href="#">Lagu yang Disukai</a>
-                    <a href="#">Daily Mix 1</a>
-                    <a href="#">Chill Vibes</a>
-                    <a href="#">Indie Indonesia</a>
+                    <a href="#">Lagu Favorit</a>
+                    <a href="#">Legenda Rock Indo</a>
+                    <a href="#">Nada-Nada Jazz</a>
+                    <a href="#">Pop Masa Kini</a>
                 </div>
             </aside>
 
@@ -394,99 +404,99 @@
                     </div>
                     <div class="header-actions">
                         <button class="upgrade">Upgrade</button>
-                        <button><i class="fas fa-user"></i> Nama User</button>
+                        <button><i class="fas fa-user"></i> Pendengar</button>
                     </div>
                 </header>
 
                 <!-- Section Beranda -->
                 <section id="home" class="content-section active">
-                    <h1>Selamat Pagi</h1>
+                    <h1>Selamat Sore</h1>
                     <div class="playlist-grid">
                         <div class="playlist-card">
                             <div class="card-image-container">
-                                <img src="https://picsum.photos/seed/dailymix1/300/300.jpg" alt="Daily Mix 1" class="card-image">
+                                <img src="https://picsum.photos/seed/iwanfals/300/300.jpg" alt="Iwan Fals & Kawan" class="card-image">
                                 <button class="card-play-btn"><i class="fas fa-play"></i></button>
                             </div>
-                            <h4>Daily Mix 1</h4>
-                            <p>Hozier, The Killers, Florence + The Machine dan lainnya</p>
+                            <h4>Iwan Fals & Kawan-Kawan</h4>
+                            <p>Iwan Fals, Ebiet G. Ade, Iwan... dan legenda lainnya.</p>
                         </div>
                         <div class="playlist-card">
                             <div class="card-image-container">
-                                <img src="https://picsum.photos/seed/discover/300/300.jpg" alt="Discover Weekly" class="card-image">
+                                <img src="https://picsum.photos/seed/raisatulus/300/300.jpg" alt="Raisa & Tulus" class="card-image">
                                 <button class="card-play-btn"><i class="fas fa-play"></i></button>
                             </div>
-                            <h4>Discover Weekly</h4>
-                            <p>Lagu baru Anda setiap hari Senin. Dibuat untuk Anda.</p>
+                            <h4>Raisa, Tulus & Friends</h4>
+                            <p>Deretan hits manis dari penyanyi papan atas Indonesia.</p>
                         </div>
                         <div class="playlist-card">
                             <div class="card-image-container">
-                                <img src="https://picsum.photos/seed/release/300/300.jpg" alt="Release Radar" class="card-image">
+                                <img src="https://picsum.photos/seed/rockindo/300/300.jpg" alt="Rock Klasik Indo" class="card-image">
                                 <button class="card-play-btn"><i class="fas fa-play"></i></button>
                             </div>
-                            <h4>Release Radar</h4>
-                            <p>Tangkap lagu terbaru dari artis yang Anda suka.</p>
+                            <h4>Gitar Rock Indonesia</h4>
+                            <p>Slank, Boomerang, God Bless, dan energi rock abadi.</p>
                         </div>
                         <div class="playlist-card">
                             <div class="card-image-container">
-                                <img src="https://picsum.photos/seed/chill/300/300.jpg" alt="Chill Hits" class="card-image">
+                                <img src="https://picsum.photos/seed/kuntoaji/300/300.jpg" alt="Kunto Aji" class="card-image">
                                 <button class="card-play-btn"><i class="fas fa-play"></i></button>
                             </div>
-                            <h4>Chill Hits</h4>
-                            <p>Santai dengan lagu-lagu chill hits terbaru dan terbaik.</p>
+                            <h4>Musik Santai</h4>
+                            <p>Kunto Aji, Hindia, .Feast, dan musik enak didengar.</p>
                         </div>
                         <div class="playlist-card">
                             <div class="card-image-container">
-                                <img src="https://picsum.photos/seed/liked/300/300.jpg" alt="Liked Songs" class="card-image">
+                                <img src="https://picsum.photos/seed/favorit/300/300.jpg" alt="Lagu Favorit" class="card-image">
                                 <button class="card-play-btn"><i class="fas fa-play"></i></button>
                             </div>
-                            <h4>Lagu yang Disukai</h4>
-                            <p>123 lagu yang disukai</p>
+                            <h4>Lagu Favorit Anda</h4>
+                            <p>152 lagu favorit yang Anda sukai</p>
                         </div>
                     </div>
                 </section>
 
                 <!-- Section Cari -->
                 <section id="search" class="content-section">
-                    <h1>Cari</h1>
+                    <h1>Jelajahi Genre</h1>
                     <div class="playlist-grid">
                         <div class="playlist-card">
-                            <div class="card-image-container" style="background-color: #ff6b6b;">
+                            <div class="card-image-container" style="background-color: var(--accent-bronze);">
                                 <button class="card-play-btn"><i class="fas fa-search"></i></button>
                             </div>
-                            <h4>Pop</h4>
+                            <h4>Pop Indonesia</h4>
                         </div>
                         <div class="playlist-card">
-                            <div class="card-image-container" style="background-color: #4ecdc4;">
+                            <div class="card-image-container" style="background-color: #8B4513;">
                                 <button class="card-play-btn"><i class="fas fa-search"></i></button>
                             </div>
-                            <h4>Hip-Hop</h4>
+                            <h4>Rock & Alternatif</h4>
                         </div>
                         <div class="playlist-card">
-                            <div class="card-image-container" style="background-color: #45b7d1;">
-                                <button class="card-play-btn"><i class="fas fa-search"></i></button>
-                            </div>
-                            <h4>Rock</h4>
-                        </div>
-                        <div class="playlist-card">
-                            <div class="card-image-container" style="background-color: #f9ca24;">
+                            <div class="card-image-container" style="background-color: #CD853F;">
                                 <button class="card-play-btn"><i class="fas fa-search"></i></button>
                             </div>
                             <h4>Dangdut</h4>
+                        </div>
+                        <div class="playlist-card">
+                            <div class="card-image-container" style="background-color: #A0522D;">
+                                <button class="card-play-btn"><i class="fas fa-search"></i></button>
+                            </div>
+                            <h4>Keroncong</h4>
                         </div>
                     </div>
                 </section>
 
                 <!-- Section Koleksi -->
                 <section id="library" class="content-section">
-                    <h1>Koleksi Kamu</h1>
+                    <h1>Koleksi Anda</h1>
                     <div class="playlist-grid">
                         <div class="playlist-card">
                             <div class="card-image-container">
-                                <img src="https://picsum.photos/seed/myplaylist/300/300.jpg" alt="My Playlist" class="card-image">
+                                <img src="https://picsum.photos/seed/playlistindo/300/300.jpg" alt="My Playlist" class="card-image">
                                 <button class="card-play-btn"><i class="fas fa-play"></i></button>
                             </div>
-                            <h4>My Awesome Playlist</h4>
-                            <p>Dibuat oleh Nama User • 88 lagu</p>
+                            <h4>Playlist Perjalanan</h4>
+                            <p>Dibuat oleh Pendengar • 33 lagu</p>
                         </div>
                     </div>
                 </section>
@@ -497,10 +507,10 @@
         <!-- Pemutar Musik -->
         <footer class="player">
             <div class="player-section player-left">
-                <img src="https://picsum.photos/seed/nowplaying/56/56.jpg" alt="Now Playing" class="album-art">
+                <img src="https://picsum.photos/seed/bento/56/56.jpg" alt="Now Playing" class="album-art">
                 <div class="track-info">
-                    <div class="track-name">Judul Lagu Saat Ini</div>
-                    <div class="artist-name">Nama Artis</div>
+                    <div class="track-name">Bento</div>
+                    <div class="artist-name">Iwan Fals</div>
                 </div>
                 <button class="control-btn like-btn"><i class="far fa-heart"></i></button>
             </div>
@@ -514,9 +524,9 @@
                         <button class="control-btn"><i class="fas fa-redo"></i></button>
                     </div>
                     <div class="progress-bar-container">
-                        <span class="time">0:00</span>
-                        <input type="range" class="progress-bar" min="0" max="100" value="0">
-                        <span class="time">3:45</span>
+                        <span class="time">2:15</span>
+                        <input type="range" class="progress-bar" min="0" max="100" value="55">
+                        <span class="time">4:05</span>
                     </div>
                 </div>
             </div>
@@ -581,7 +591,7 @@
             });
 
             // --- Simulasi Progress Bar ---
-            let progress = 0;
+            let progress = 55; // Mulai dari tengah lagu
             setInterval(() => {
                 if (isPlaying && progress < 100) {
                     progress += 0.1;
