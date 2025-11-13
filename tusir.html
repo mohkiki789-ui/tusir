@@ -1,1 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Spotify (HTML Saja)</title>
+</head>
+<body>
 
+    <h1>Spotify Web Player - Struktur HTML</h1>
+    <hr>
+
+    <!-- ================================================= -->
+    <!-- AREA SIDEBAR (Navigasi Kiri) -->
+    <!-- ================================================= -->
+    <nav>
+        <h2>Logo Spotify</h2>
+        <ul>
+            <li><a href="#">Beranda</a></li>
+            <li><a href="#">Cari</a></li>
+            <li><a href="#">Koleksi Kamu</a></li>
+        </ul>
+
+        <h3>Playlist</h3>
+        <ul>
+            <li><a href="#">Buat Playlist</a></li>
+            <li><a href="#">Playlist Favorit Saya</a></li>
+            <li><a href="#">Lagu Indie Indonesia</a></li>
+            <li><a href="#">Chill Vibes</a></li>
+        </ul>
+    </nav>
+    <hr>
+
+    <!-- ================================================= -->
+    <!-- AREA KONTEN UTAMA -->
+    <!-- ================================================= -->
+    <main>
+        <header>
+            <!-- Navigasi Atas -->
+            <p>[Tombol Kembali] [Tombol Maju] --- [Tombol Upgrade] --- [Foto Profil User] [Nama User]</p>
+        </header>
+
+        <section id="home-section">
+            <h2>Selamat Pagi</h2>
+
+            <!-- Grid Playlist -->
+            <div>
+                <h3>Daily Mix 1</h3>
+                <img src="https://via.placeholder.com/150/1DB954/000000?text=Daily+Mix+1" alt="Cover Playlist">
+                <p>Ed Sheeran, Shawn Mendes, Lewis Capaldi dan lainnya</p>
+            </div>
+
+            <div>
+                <h3>Lagu yang Disukai</h3>
+                <img src="https://via.placeholder.com/150/1DB954/000000?text=Liked+Songs" alt="Cover Playlist">
+                <p>46 lagu yang disukai</p>
+            </div>
+
+            <div>
+                <h3>Chill Hits</h3>
+                <img src="https://via.placeholder.com/150/1DB954/000000?text=Chill+Hits" alt="Cover Playlist">
+                <p>Kick back to the best new and recent chill hits.</p>
+            </div>
+
+            <div>
+                <h3>RapCaviar</h3>
+                <img src="https://via.placeholder.com/150/1DB954/000000?text=RapCaviar" alt="Cover Playlist">
+                <p>Musik rap terbaru dari atas ke bawah.</p>
+            </div>
+        </section>
+    </main>
+    <hr>
+
+    <!-- ================================================= -->
+    <!-- AREA PEMUTAR MUSIK (Bawah) -->
+    <!-- ================================================= -->
+    <footer>
+        <h3>Pemutar Musik</h3>
+        <div>
+            <!-- Bagian Kiri: Info Lagu -->
+            <p>
+                <img src="https://via.placeholder.com/56/1DB954/000000?text=Now+Playing" alt="Album Art">
+                <strong>Judul Lagu Saat Ini</strong>
+                <br>
+                <em>Nama Artis</em>
+                <button>[Tombol Suka]</button>
+            </p>
+        </div>
+
+        <div>
+            <!-- Bagian Tengah: Kontrol Pemutaran -->
+            <p>
+                <button>[Acak]</button>
+                <button>[Mundur]</button>
+                <button>[Main/Jeda]</button>
+                <button>[Maju]</button>
+                <button>[Ulangi]</button>
+            </p>
+            <p>
+                <label>0:00</label>
+                <input type="range" min="0" max="100" value="0">
+                <label>3:45</label>
+            </p>
+        </div>
+
+        <div>
+            <!-- Bagian Kanan: Kontrol Ekstra -->
+            <p>
+                <button>[Daftar Putar]</button>
+                <button>[Perangkat]</button>
+                <button>[Volume]</button>
+                <input type="range" min="0" max="100" value="70">
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
